@@ -3,14 +3,12 @@ from operator import truediv
 import re
 import pygame
 import os
+import button
 pygame.init()
 pygame.font.init()
 
 WIDTH, HEIGHT = 800,600
 
-
-
-global MONEY
 
 WIN = pygame.display.set_mode((WIDTH,HEIGHT))
 
@@ -29,22 +27,16 @@ pygame.display.set_caption("Clicker game")
 
 FPS = 60
 
-#button class
-class Button():
-    def __init__(self, x, y, image):
-        self.image = image
-        self.rect = self.image.get_rect()
-        self.rect.topleft = (x,y)
-    def draw(self):
-        WIN.blit(self.image, (self.rect.x, self.rect.y))
 
-start_button = Button(HEIGHT/2, WIDTH/2, btn)
+
+start_button = button.Button(HEIGHT/2, WIDTH/2, btn)
 
 
 def draw_window():
-    
+    MONEY = 0
     WIN.fill(WHITE)
-    start_button.draw()
+    if start_button.draw(WIN):
+        MONEY = MONEY + 1
     pygame.display.update()
     
 def main():
