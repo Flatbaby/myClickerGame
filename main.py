@@ -15,7 +15,8 @@ global MONEY
 WIN = pygame.display.set_mode((WIDTH,HEIGHT))
 
 #image load 
-btn = pygame.image.load('button.png').convert_alpha()
+btn_load = pygame.image.load('button.png').convert_alpha()
+btn = pygame.transform.scale(btn_load, (100, 100))
 
 WHITE = (255,255,255)
 BLACK = (0,0,0)
