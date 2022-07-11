@@ -33,15 +33,16 @@ start_button = button.Button(HEIGHT/2, WIDTH/2, btn)
 
 
 def draw_window():
-    MONEY = 0
+    
     WIN.fill(WHITE)
     if start_button.draw(WIN):
-        MONEY = MONEY + 1
+        print('Pressed')
     pygame.display.update()
     
 def main():
     clock = pygame.time.Clock()
     run = True
+    money = 0
     
     while run:
         clock.tick(FPS)
@@ -49,5 +50,8 @@ def main():
             if event.type == pygame.QUIT:
                 run = False
                 pygame.quit
+        if button.Button.clicked == True :
+            money += 1
+            print(money)
         draw_window()
 main()
