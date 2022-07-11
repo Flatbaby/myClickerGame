@@ -8,9 +8,14 @@ pygame.font.init()
 
 WIDTH, HEIGHT = 800,600
 
+
+
 global MONEY
 
 WIN = pygame.display.set_mode((WIDTH,HEIGHT))
+
+#image load 
+btn = pygame.image.load('button.png').convert_alpha()
 
 WHITE = (255,255,255)
 BLACK = (0,0,0)
@@ -23,20 +28,24 @@ pygame.display.set_caption("Clicker game")
 
 FPS = 60
 
-def draw_window():
-    
-    rect_dimensions = 50
-    
-    
-    WIN.fill(WHITE)
-    pygame.draw.rect(WIN, YELLOW, (400,300,rect_dimensions,rect_dimensions))
-    pygame.display.update()
-    
 #button class
 class Button():
     def __init__(self, x, y, image):
+        self.image = image
+        self.rect = self.image.get_rect()
+        self.rect.topleft = (x,y)
+    def draw(self):
+        WIN.blit(self.image, (self.rect.x, self.rect.y))
+
+start_button = Button(HEIGHT/2, WIDTH/2, btn)
 
 
+def draw_window():
+    
+    WIN.fill(WHITE)
+    start_button.draw()
+    pygame.display.update()
+    
 def main():
     clock = pygame.time.Clock()
     run = True
