@@ -31,6 +31,10 @@ def draw_window():
     WIN.fill(WHITE)
     pygame.draw.rect(WIN, YELLOW, (400,300,rect_dimensions,rect_dimensions))
     pygame.display.update()
+    
+#button class
+class Button():
+    def __init__(self, x, y, image):
 
 
 def main():
@@ -43,11 +47,5 @@ def main():
             if event.type == pygame.QUIT:
                 run = False
                 pygame.quit
-        if event.type == pygame.MOUSEBUTTONDOWN:
-            pos = pygame.mouse.get_pos()
-            
-            if button.collidepoint(event.pos):
-                MONEY = MONEY + 1
-    
         draw_window()
 main()
