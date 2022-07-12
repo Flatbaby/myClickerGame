@@ -35,8 +35,7 @@ start_button = button.Button(HEIGHT/2, WIDTH/2, btn)
 def draw_window():
     
     WIN.fill(WHITE)
-    if start_button.draw(WIN):
-        print('Pressed')
+    start_button.draw(WIN)
     pygame.display.update()
     
 def main():
@@ -50,8 +49,8 @@ def main():
             if event.type == pygame.QUIT:
                 run = False
                 pygame.quit
-        if button.Button.clicked == True :
+        if start_button.clicked == True:
             money += 1
-            print(money)
+            print("Money: " + str(money))
         draw_window()
 main()
