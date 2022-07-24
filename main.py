@@ -50,7 +50,7 @@ def main():
             if event.type == pygame.QUIT:
                 run = False
                 pygame.quit
-        if button.Button.clicked == True :
+        if start_button.clicked == True:
             money += 1
             print(money)
         draw_window()
