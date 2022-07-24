@@ -16,6 +16,7 @@ WIN = pygame.display.set_mode((WIDTH,HEIGHT))
 btn_load = pygame.image.load('button.png').convert_alpha()
 btn = pygame.transform.scale(btn_load, (100, 100))
 
+MONEY = 0
 WHITE = (255,255,255)
 BLACK = (0,0,0)
 RED = (255, 0, 0)
@@ -32,17 +33,22 @@ FPS = 60
 start_button = button.Button(HEIGHT/2, WIDTH/2, btn)
 
 
+
 def draw_window():
     
     WIN.fill(WHITE)
     if start_button.draw(WIN):
-        print('Pressed')
+        MONEY =+ 1
+        print(MONEY)
+            
     pygame.display.update()
     
 def main():
     clock = pygame.time.Clock()
     run = True
-    money = 0
+    
+    
+    
     
     while run:
         clock.tick(FPS)
@@ -50,8 +56,7 @@ def main():
             if event.type == pygame.QUIT:
                 run = False
                 pygame.quit
-        if start_button.clicked == True:
-            money += 1
-            print(money)
-        draw_window()
+       
+          
+        draw_window() 
 main()
