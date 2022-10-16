@@ -41,8 +41,7 @@ def draw_window():
     
     WIN.fill(WHITE)
     start_button.draw(WIN)
-  
-            
+
     pygame.display.update()
     
 def main():
@@ -61,6 +60,7 @@ def main():
             if event.type == pygame.QUIT:
                 run = False
                 pygame.quit
+
             if event.type == pygame.MOUSEBUTTONDOWN:
                 mopos = pygame.mouse.get_pos()
                 if mopos >= (380,0):
@@ -69,5 +69,5 @@ def main():
                         print(coins)
        
           
-        draw_window() 
+        draw_window()
 main()
